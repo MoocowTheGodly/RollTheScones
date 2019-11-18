@@ -38,4 +38,45 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <EditText
+        android:id="@+id/addressET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:imeOptions="actionDone"
+        android:ems="10"
+        android:hint="Address"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/buttonCustLoc"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCustLoc" />
+
+    <Button
+        android:id="@+id/buttonGo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonBack"
+        app:layout_constraintTop_toBottomOf="@+id/addressET" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressET" />
+
+    <TextView
+        android:id="@+id/testText"
+        android:layout_width="267dp"
+        android:layout_height="39dp"
+        android:text="TEST TEXT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/addressET"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
