@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
 
     private val LOCATION_REQUEST_CODE = 101
     var destination = ""
+    //TODO: GIVE THIS ACTUAL NAME
+    var sizeOfStuff = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         val testText = findViewById<TextView>(R.id.testText)
         viewModel.observePlaces().observe(this, Observer {
+            sizeOfStuff = it.size
             var rand = (0 until it.size).random()
             testText.text = it[rand].name
         })
@@ -90,6 +93,13 @@ class MainActivity : AppCompatActivity() {
         var buttonBack = findViewById<Button>(R.id.buttonBack)
         var editText = findViewById<EditText>(R.id.addressET)
         var buttonGo = findViewById<Button>(R.id.buttonGo)
+        //temporary
+        val testText = findViewById<TextView>(R.id.testText)
+        var buttonRoll = findViewById<Button>(R.id.buttonRoll)
+        buttonRoll.setOnClickListener {
+            testText.text = viewModel.places.value!![(0 until sizeOfStuff).random()].name
+        }
+        //
         var myLocUsed = false
         buttonMyLoc.setOnClickListener {
             buttonMyLoc.isInvisible = true

@@ -10,7 +10,7 @@ import androidx.lifecycle.viewModelScope
 class MainViewModel : ViewModel() {
     private val placesApi = PlacesApi.create()
     private val placeRepository = PlacesRepository(placesApi)
-    private val places = MutableLiveData<List<Restaurant>>()
+    val places = MutableLiveData<List<Restaurant>>()
     var latLong = MutableLiveData<String>().apply {
         value = ""
     }
