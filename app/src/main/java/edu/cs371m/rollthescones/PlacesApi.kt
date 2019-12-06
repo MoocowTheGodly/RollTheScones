@@ -16,12 +16,16 @@ import retrofit2.http.Query
 interface PlacesApi {
 
 
-    @GET("maps/api/place/nearbysearch/json")
+    @GET("maps/api/place/textsearch/json")
     suspend fun getNearbyPlaces(
         @Query("location") location: String,
         @Query("radius") radius: Int?,
         @Query("types") types: String,
-        @Query("key") key: String): Place
+        @Query("key") key: String,
+        @Query("query") query: String,
+        @Query("minprice") minPrice: Int,
+        @Query("maxprice") maxPrice: Int,
+        @Query("opennow") open: Boolean): Place
 
 
     /*

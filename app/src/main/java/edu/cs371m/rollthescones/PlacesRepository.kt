@@ -1,13 +1,9 @@
 package edu.cs371m.rollthescones
 
-import com.google.gson.Gson
-
 class PlacesRepository (private val placesApi: PlacesApi) {
 
-    val gson = Gson()
-
-    /*
-    fun unpackRestaurants (response: Place): List<Restaurant>? {
+    suspend fun getRestaurants(location: String, radius: Int, minPrice: Int, maxPrice: Int, query: String): List<Restaurant>? {
+        val response = placesApi.getNearbyPlaces(location, radius, "restaurant", "AIzaSyCGasbYUduKIicNs7RjPWXxaefdiqHhEew", query+" sit down restaurants", minPrice, maxPrice, true)
         var restaurants = mutableListOf<Restaurant>()
         val size = response.results.size
         for (i in 0 until size) {
@@ -15,11 +11,8 @@ class PlacesRepository (private val placesApi: PlacesApi) {
         }
         return restaurants
     }
-     */
-
-
-    suspend fun getRestaurants(location: String, radius: Int): List<Restaurant>? {
-        val response = placesApi.getNearbyPlaces(location, radius, "restaurant", "AIzaSyCGasbYUduKIicNs7RjPWXxaefdiqHhEew")
+    suspend fun getRestaurantsEasier(location: String, radius: Int, minPrice: Int, maxPrice: Int, query: String): List<Restaurant>? {
+        val response = placesApi.getNearbyPlaces(location, radius, "restaurant", "AIzaSyCGasbYUduKIicNs7RjPWXxaefdiqHhEew", query+" food", minPrice, maxPrice, true)
         var restaurants = mutableListOf<Restaurant>()
         val size = response.results.size
         for (i in 0 until size) {

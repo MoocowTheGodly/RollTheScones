@@ -9,5 +9,10 @@ data class Restaurant (
     @SerializedName("geometry")
     val geometry: LatLng,
     @SerializedName("name")
-    val name: String
+    val name: String,
+    @SerializedName("formatted_address")
+    val address: String,
+    @SerializedName("rating")
+    val rating: Double
+
 )
